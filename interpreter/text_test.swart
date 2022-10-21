@@ -1,0 +1,6 @@
+view Main content: (
+    stack [
+        (text "Прив" color: white)
+        (column [(text "World") (text "of Coding!" color: yellow)])
+    ]
+)

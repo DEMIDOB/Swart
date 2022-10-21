@@ -1,0 +1,37 @@
+----i did not care before :)----
+
+everything except for the bottom listed features i guess
+
+-----------10/21/2022-----------
+[x] stack/row/column alignment
+[x] text fontSize
+[x] text fontWeight
+[x] text backgroundColor
+
+[ ] scroll viedget (vertical only for now)
+
+[ ] container viedget:
+    { } background
+    { } size (width & height)
+    {?} text backgroundColor deprecation
+[ ] offset viedget
+[?] frame viedget
+
+! ! row's vertical alignment issue on swift (e.g. try 'start')
+
+[ ] navigation viedget
+
+[ ] view arguments
+
+[ ] direct, platform dependent code insertions
+
+[ ] scopes (namespaces)
+
+[ ] code blocks
+[ ] variables
+[ ] if statements
+[ ] while loops
+
+[ ] view state variables
+[ ] view methods
+[ ] button
