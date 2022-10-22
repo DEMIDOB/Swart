@@ -1,7 +1,7 @@
 import re
 from dataclasses import dataclass
 
-from splitting import split_on_current_level
+from splitting import split_for_current_scope
 
 ELEMENT_KEYWORD_RE = re.compile(r"[a-z][a-z_]*")
 ATTRIBUTE_KEY_RE = re.compile(r"[a-z][a-z_]*:")
@@ -56,7 +56,7 @@ class Attribute:
             parser_fields["tasks"].put(current_element.preprocess)
             parser_fields["tasks"].put(current_element.parse)
         elif self.type == "AT_ELEMENT_ARRAY":
-            elements_src = split_on_current_level(self.raw_value[1:-1], list(range(
+            elements_src = split_for_current_scope(self.raw_value[1:-1], list(range(
                 self.value_start_global_offset + 1,len(self.raw_value) + self.value_start_global_offset -1)))
             elements = []
 
@@ -112,8 +112,8 @@ class Element:
     def parse(self):
         assert self.clean_src, "Preprocessing should be made before parsing"
 
-        split, split_offsets = split_on_current_level(self.clean_src, self.clean_src_global_offsets,
-                                                      capture_offsets=True, inverse=True)
+        split, split_offsets = split_for_current_scope(self.clean_src, self.clean_src_global_offsets,
+                                                       capture_offsets=True, inverse=True)
 
         self.keyword = split.pop()
         self.validate_new_attr_keyword()
