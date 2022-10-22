@@ -1,5 +1,5 @@
 from element import Element
-from interpreter.viedgets.service.element_array_based_viedget import ElementArrayBasedViedget
+from interpreter.viedgets.service.element_array_based.element_array_based_viedget import ElementArrayBasedViedget
 from string_processing.cases import snake_to_camel
 
 
@@ -33,8 +33,8 @@ children: [{content}
         super().__init__(element, interpret_recursive, self.keyword,
                          swift_additional_data_processing=StackViedget.handle_swift_alignment)
 
-        self.data["alignment"] = "center"
+        self._data["alignment"] = "center"
 
         if "alignment" in element:
             element.validate_argument("alignment", "AT_STRING")
-            self.data["alignment"] = snake_to_camel(element["alignment"].value)
+            self._data["alignment"] = snake_to_camel(element["alignment"].value)

@@ -1,5 +1,5 @@
 view SwartGeneratedView content: (padding all: 20 
-    (column vertical_alignment: start [
+    (scrollable direction: vertical [
         (row with horizontal_alignment: space_between [
             (text "Hi!" color: red font_size: 36 font_weight: bold)
             (padding all: 10 

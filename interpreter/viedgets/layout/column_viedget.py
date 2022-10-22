@@ -1,6 +1,6 @@
 from element import Element
 from graphics.space.SwartAxis import SwartAxis
-from interpreter.viedgets.service.element_array_based_viedget import ElementArrayBasedViedget
+from interpreter.viedgets.service.element_array_based.element_array_based_viedget import ElementArrayBasedViedget
 
 
 class ColumnViedget(ElementArrayBasedViedget):

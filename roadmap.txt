@@ -8,7 +8,9 @@ everything except for the bottom listed features i guess
 [x] text fontWeight
 [x] text backgroundColor
 
-[ ] scroll viedget (vertical only for now)
+-----------10/22/2022-----------
+[x] dart_params as a class for element_array_based_viedget
+[x] scroll viedget (vertical only for now)
 
 [ ] container viedget:
     { } background
