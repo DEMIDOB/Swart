@@ -16,17 +16,19 @@ everything except for the bottom listed features i guess
     { } background
     { } size (width & height)
     ? ? text backgroundColor deprecation
+
+-----------10/23/2022-----------
 [ ] offset viedget
 [ ] navigation viedget
-
 ? ? frame viedget (maybe container will just play its role)
 ? ? extend dart_params on any viedget?
 
+-----------10/24/2022-----------
 ! ! row's vertical alignment issue on swift (e.g. try 'start')
 ! ! TODOs (error messages, etc.)
-
 [ ] character class for parsing (in order to store its initial position in the source code file)
 
+-----------../../2022-----------
 [ ] view arguments
 [ ] direct, platform dependent code insertions
 [ ] scopes (namespaces)
