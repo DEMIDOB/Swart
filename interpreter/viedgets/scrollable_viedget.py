@@ -9,7 +9,7 @@ class ScrollableViedget(ElementArrayBasedViedget):
     swift_boilerplate = """ScrollView(.{direction}) ~{content}
 |"""
 
-    dart_boilerplate = """List({dart_params}
+    dart_boilerplate = """ListView({dart_params}
 children: [{content}
 ],
 )"""
@@ -26,3 +26,6 @@ children: [{content}
             # TODO: AssertionError message
             assert self.direction in ("vertical", "horizontal")
         self._data["direction"] = self.direction
+
+        self.remove_dart_param("mainAxisAlignment")
+        self.remove_dart_param("crossAxisAlignment")

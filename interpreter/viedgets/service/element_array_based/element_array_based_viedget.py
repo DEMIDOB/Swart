@@ -38,6 +38,28 @@ class ElementArrayBasedViedget:
             if self.cross_axis in element:
                 self.cross_axis_alignment = element[self.cross_axis].value
 
+        self._make_dart_params()
+
+    def _make_dart_params(self):
+        main_axis_alignment = {
+            "default": DartParam("mainAxisAlignment", "MainAxisAlignment.start"),
+            "start": DartParam("mainAxisAlignment", "MainAxisAlignment.start"),
+            "end": DartParam("mainAxisAlignment", "MainAxisAlignment.end"),
+            "space_between": DartParam("mainAxisAlignment", "MainAxisAlignment.spaceBetween"),
+            "space_around": DartParam("mainAxisAlignment", "MainAxisAlignment.spaceAround"),
+
+        }[self.main_axis_alignment]
+
+        cross_axis_alignment = {
+            "default": DartParam("crossAxisAlignment", "CrossAxisAlignment.center"),
+            "start": DartParam("crossAxisAlignment", "CrossAxisAlignment.start"),
+            "center": DartParam("crossAxisAlignment", "CrossAxisAlignment.center"),
+            "end": DartParam("crossAxisAlignment", "CrossAxisAlignment.end"),
+        }[self.cross_axis_alignment]
+
+        self.add_dart_param(main_axis_alignment)
+        self.add_dart_param(cross_axis_alignment)
+
     @property
     def cross_axis(self):
         return SwartAxis.get_opposite(of=self.main_axis)
@@ -92,34 +114,19 @@ class ElementArrayBasedViedget:
 
     @property
     def dart(self):
-        main_axis_alignment = {
-            "default": DartParam("mainAxisAlignment", "MainAxisAlignment.start"),
-            "start": DartParam("mainAxisAlignment", "MainAxisAlignment.start"),
-            "end": DartParam("mainAxisAlignment", "MainAxisAlignment.end"),
-            "space_between": DartParam("mainAxisAlignment", "MainAxisAlignment.spaceBetween"),
-            "space_around": DartParam("mainAxisAlignment", "MainAxisAlignment.spaceAround"),
-
-        }[self.main_axis_alignment]
-
-        cross_axis_alignment = {
-            "default": DartParam("crossAxisAlignment", "CrossAxisAlignment.center"),
-            "start": DartParam("crossAxisAlignment", "CrossAxisAlignment.start"),
-            "center": DartParam("crossAxisAlignment", "CrossAxisAlignment.center"),
-            "end": DartParam("crossAxisAlignment", "CrossAxisAlignment.end"),
-        }[self.cross_axis_alignment]
-
-        self.add_dart_param(main_axis_alignment)
-        self.add_dart_param(cross_axis_alignment)
-
         self._data["dart_params"] = self._dart_params
         self._data["content"] = self.make_content(sep=",\n", element_wrapper="{0}", content_postprocessor=lambda x: x)
 
         return self.dart_boilerplate.format(**self._data)
 
     def add_dart_param(self, param: DartParam):
-        self._dart_params.add_param(param)
+        self._dart_params.add(param)
 
     def add_dart_param_kv(self, key: str, value: str):
         new_param = DartParam(key, value)
-        self._dart_params.add_param(new_param)
+        self._dart_params.add(new_param)
         return new_param
+
+    def remove_dart_param(self, key: str):
+        self._dart_params.remove(key)
+
