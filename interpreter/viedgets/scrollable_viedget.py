@@ -9,7 +9,7 @@ class ScrollableViedget(ElementArrayBasedViedget):
     swift_boilerplate = """ScrollView(.{direction}) ~{content}
 |"""
 
-    dart_boilerplate = """ScrollView({dart_params}
+    dart_boilerplate = """List({dart_params}
 children: [{content}
 ],
 )"""
