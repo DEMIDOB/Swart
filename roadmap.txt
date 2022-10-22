@@ -11,7 +11,7 @@ everything except for the bottom listed features i guess
 -----------10/22/2022-----------
 [x] dart_params as a class for element_array_based_viedget
 [x] scroll viedget (vertical only for now)
-
+[ ] dart_params -> generic_params -> (dart_params & swift_modifiers)
 [ ] container viedget:
     { } background
     { } size (width & height)
